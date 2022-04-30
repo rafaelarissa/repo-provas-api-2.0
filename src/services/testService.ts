@@ -1,8 +1,11 @@
+import { Test } from ".prisma/client";
 import testRepository from "../repositories/testRepository.js";
 
 interface Filter {
   groupBy: "disciplines" | "teachers";
 }
+
+export type CreateTestData = Omit<Test, "id">;
 
 async function find(filter: Filter) {
   if (filter.groupBy === "disciplines") {
