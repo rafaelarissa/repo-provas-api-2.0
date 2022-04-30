@@ -16,6 +16,8 @@ async function insert(req: Request, res: Response) {
   const test: CreateTestData = req.body;
 
   await testService.insert(test);
+
+  res.sendStatus(201);
 }
 
 export default {
