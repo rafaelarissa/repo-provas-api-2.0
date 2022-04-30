@@ -7,7 +7,9 @@ interface Filter {
 
 export type CreateTestData = Omit<Test, "id">;
 
-async function insert(createTestData: CreateTestData) {}
+async function insert(createTestData: CreateTestData) {
+  await testRepository.insert(createTestData);
+}
 
 async function find(filter: Filter) {
   if (filter.groupBy === "disciplines") {
